@@ -23,5 +23,5 @@ Professores e alunos interessados em tornar mais ágil o processo de chamada em 
 Ver mockup.
 
 #### Divisão do trabalho
-Miriane: visão do professor
+Miriane: visão do professor  
 Nara: visão do aluno
