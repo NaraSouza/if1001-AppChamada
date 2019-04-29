@@ -1,7 +1,7 @@
 # Projeto da disciplina IF1001 - Programação 3
 
 #### Ideia 
-Um aplicativo com duas visões - uma para professor e outra para aluno - em que é possível obter a presença do aluno em sala de aula através da proximidade entre os smartphones do aluno e do professor (utilizando Google Nearby Messages, comunicação unidirecional; é necessária conexão com a internet).
+Um aplicativo com duas visões - uma para professor e outra para aluno - em que é possível obter a presença do aluno em sala de aula através da proximidade entre os smartphones do aluno e do professor (utilizando Google Nearby Messages, comunicação unidirecional; é necessária conexão com a internet). O professor poderá exportar a lista de presença das disciplinas em uma planilha, caso deseje. O aluno terá acesso à sua lista de presença em aulas, além de informações como número de faltas e quantas faltas ainda serão toleradas dentro da carga horária da disciplina.
 
 #### Público-alvo
 Professores e alunos interessados em tornar mais ágil o processo de chamada em sala de aula. Além de poupar tempo de aula, a presença é confirmada sem a necessidade de uma ação direta do professor ou do aluno, utilizando informações sobre os dias e horários das aulas e dos alunos matriculados na disciplina.
