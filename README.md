@@ -20,7 +20,7 @@ Professores e alunos interessados em tornar mais ágil o processo de chamada em 
     - Lista de faltas/presença nas aulas de cada disciplina
 
 #### Fluxo de navegação
-Ver mockup.
+[Ver mockup.](https://drive.google.com/open?id=1OlEZtHhe0wZf8swPdnnw77VngSgfGrF6)
 
 #### Divisão do trabalho
 Miriane: visão do professor  
