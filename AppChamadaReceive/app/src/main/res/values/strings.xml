@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppChamadaReceive</string>
+    <string name="rcv_message">Mensagem recebida</string>
+    <string name="rcv_ok">OK</string>
+</resources>

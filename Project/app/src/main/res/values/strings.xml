@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">AppChamada</string>
+    <string name="app_name">AppChamadaSend</string>
     <string name="edt_send">Digite sua mensagem</string>
     <string name="send_message">Enviar mensagem</string>
-    <string name="rcv_message">Mensagem recebida</string>
-    <string name="rcv_ok">OK</string>
 </resources>

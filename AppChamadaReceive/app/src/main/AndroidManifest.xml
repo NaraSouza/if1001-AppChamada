@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.appchamada">
+          package="com.example.appchamadareceive">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -14,7 +14,7 @@
             android:theme="@style/AppTheme">
         <meta-data
                 android:name="com.google.android.nearby.messages.API_KEY"
-                android:value="AIzaSyAI8JwxJLZS-VSn-1C1K5LzSWzemDBnSXc" />
+                android:value="AIzaSyBBVsFZMpw-F7SEZF0rpsi_xX3GIeaAfQA" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
