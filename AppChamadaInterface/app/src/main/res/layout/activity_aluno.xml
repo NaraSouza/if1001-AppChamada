@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:context=".AlunoActivity">
+
+    <TextView
+            android:id="@+id/student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/student_profile_picture"
+            android:text="@string/generic_name"/>
+
+    <ImageView
+            android:id="@+id/student_profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_account_circle_gray_24dp"
+            android:contentDescription="@string/profile_picture"/>
+
+    <Button
+            android:id="@+id/btn_student_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/student_profile_picture"
+            android:layout_marginTop="10dp"
+            android:text="@string/logout"
+            android:textAllCaps="false"
+            android:textColor="@color/logout_red"
+            android:backgroundTintMode="screen"/>
+
+    <TextView
+            android:id="@+id/student_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:layout_below="@id/btn_student_logout"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:id="@+id/student_subjects"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subjects"
+            android:layout_below="@id/student_home"
+            android:layout_marginTop="20dp"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_student_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/student_subjects"
+            android:layout_marginTop="20dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_action_add"
+            android:layout_marginBottom="80dp"/>
+
+</RelativeLayout>

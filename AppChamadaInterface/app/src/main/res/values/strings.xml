@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AppChamadaInterface</string>
+    <string name="main_professor">Professor</string>
+    <string name="main_student">Aluno</string>
+    <string name="generic_name">Maria Vieira</string>
+    <string name="logout">Deslogar</string>
+    <string name="home">Página Inicial</string>
+    <string name="subjects">Disciplinas</string>
+
+    <!-- Aluno -->
+
+    <!-- Professor -->
+
+    <!-- Image Content Description -->
+    <string name="next_screen">Pŕoxima página</string>
+    <string name="profile_picture">Foto de perfil</string>
+
+</resources>
