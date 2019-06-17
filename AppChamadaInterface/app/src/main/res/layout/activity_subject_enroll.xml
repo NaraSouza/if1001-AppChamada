@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SubjectEnrollActivity"
+        android:layout_margin="10dp">
+
+    <TextView
+            android:id="@+id/tv_student_subject_enroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_enroll"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
+
+    <TextView
+            android:id="@+id/tv_student_subject_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_code"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_student_subject_enroll"/>
+
+    <EditText
+            android:id="@+id/edt_student_hint_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_code"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_student_subject_enroll"
+            android:layout_toEndOf="@id/tv_student_subject_code"
+            android:layout_alignBaseline="@id/tv_student_subject_code"
+            android:layout_marginStart="20dp"/>
+
+    <Button
+            android:id="@+id/btn_student_subject_enroll_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_enroll_confirm"
+            android:textAllCaps="false"
+            android:backgroundTintMode="screen"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@id/tv_student_subject_code"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

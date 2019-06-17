@@ -5,17 +5,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        tools:context=".AlunoActivity">
+        tools:context=".StudentActivity">
 
     <TextView
-            android:id="@+id/student_name"
+            android:id="@+id/tv_student_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/student_profile_picture"
+            android:layout_toStartOf="@id/imv_student_profile_picture"
             android:text="@string/generic_name"/>
 
     <ImageView
-            android:id="@+id/student_profile_picture"
+            android:id="@+id/imv_student_profile_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/student_profile_picture"
+            android:layout_below="@id/imv_student_profile_picture"
             android:layout_marginTop="10dp"
             android:text="@string/logout"
             android:textAllCaps="false"
@@ -36,7 +36,7 @@
             android:backgroundTintMode="screen"/>
 
     <TextView
-            android:id="@+id/student_home"
+            android:id="@+id/tv_student_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/home"
@@ -45,21 +45,22 @@
             android:layout_centerHorizontal="true"/>
 
     <TextView
-            android:id="@+id/student_subjects"
+            android:id="@+id/tv_student_subjects"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/subjects"
-            android:layout_below="@id/student_home"
+            android:layout_below="@id/tv_student_home"
             android:layout_marginTop="20dp"/>
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_student_subjects"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/student_subjects"
+            android:layout_below="@id/tv_student_subjects"
             android:layout_marginTop="20dp"/>
 
     <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_student_add_subject"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_alignParentEnd="true"

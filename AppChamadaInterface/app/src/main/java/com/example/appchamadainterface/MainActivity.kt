@@ -11,12 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ll_professor.setOnClickListener {
+        imb_professor.setOnClickListener {
             startActivity(Intent(this, ProfessorActivity::class.java))
         }
 
-        ll_aluno.setOnClickListener {
-            startActivity(Intent(this, AlunoActivity::class.java))
+        imb_student.setOnClickListener {
+            startActivity(Intent(this, StudentActivity::class.java))
         }
     }
 }
