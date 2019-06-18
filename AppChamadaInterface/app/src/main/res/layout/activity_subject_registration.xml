@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SubjectRegistrationActivity"
+        android:layout_margin="10dp">
+
+    <TextView
+            android:id="@+id/tv_professor_subject_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_registration"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
+
+    <TextView
+            android:id="@+id/tv_professor_subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_name"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_professor_subject_registration"/>
+
+    <EditText
+            android:id="@+id/edt_professor_subject_hint_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_professor_subject_registration"
+            android:layout_toEndOf="@id/tv_professor_subject_name"
+            android:layout_alignBaseline="@id/tv_professor_subject_name"
+            android:layout_marginStart="20dp"/>
+
+    <TextView
+            android:id="@+id/tv_professor_subject_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_schedule"
+            android:textSize="16sp"
+            android:layout_below="@id/edt_professor_subject_hint_name"
+            android:layout_marginTop="20dp"/>
+
+    <ImageView
+            android:id="@+id/imv_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calendar_placeholder_gray_150dp"
+            android:contentDescription="@string/calendar"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_professor_subject_schedule"
+            android:layout_marginTop="20dp"/>
+
+    <Button
+            android:id="@+id/btn_professor_subject_registration_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_registration_confirm"
+            android:textAllCaps="false"
+            android:backgroundTintMode="screen"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@id/imv_calendar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

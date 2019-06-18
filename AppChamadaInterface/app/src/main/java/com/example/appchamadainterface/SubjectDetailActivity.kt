@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 import com.example.appchamadainterface.adapters.SubjectClassesAdapter
 import com.example.appchamadainterface.models.Class
 import kotlinx.android.synthetic.main.activity_subject_detail.*
@@ -22,6 +23,14 @@ class SubjectDetailActivity : AppCompatActivity() {
         val num = extras.getInt("subject_maxMissedClasses").toString(10)
         val s = tv_max_missed_classes.text
         tv_max_missed_classes.text = "$s $num"
+
+        if(extras.getString("user")!!.equals("professor")) {
+            tv_missed_classes.visibility = View.GONE
+            ll_professor_export.visibility = View.VISIBLE
+        } else {
+            tv_missed_classes.visibility = View.VISIBLE
+            ll_professor_export.visibility = View.GONE
+        }
 
         rv_subject_classes.apply {
             layoutManager = LinearLayoutManager(applicationContext)

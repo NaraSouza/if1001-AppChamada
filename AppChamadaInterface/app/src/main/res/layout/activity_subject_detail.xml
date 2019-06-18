@@ -11,7 +11,8 @@
             android:id="@+id/tv_subject_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
 
     <TextView
             android:id="@+id/tv_missed_classes"
@@ -19,8 +20,7 @@
             android:layout_height="wrap_content"
             android:text="@string/subject_missed_classes"
             android:layout_below="@id/tv_subject_title"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"/>
+            android:layout_alignParentEnd="true"/>
 
     <TextView
             android:id="@+id/tv_max_missed_classes"
@@ -30,13 +30,37 @@
             android:layout_below="@id/tv_missed_classes"
             android:layout_alignParentEnd="true"/>
 
+    <LinearLayout
+            android:id="@+id/ll_professor_export"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_below="@id/tv_max_missed_classes"
+            android:layout_alignParentEnd="true">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/export"/>
+
+        <ImageButton
+                android:id="@+id/imb_professor_export"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_action_export"
+                android:contentDescription="@string/export"
+                android:backgroundTintMode="screen"/>
+
+    </LinearLayout>
+
     <TextView
             android:id="@+id/tv_classes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/classes"
             android:layout_below="@id/tv_max_missed_classes"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="40dp"/>
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_subject_classes"

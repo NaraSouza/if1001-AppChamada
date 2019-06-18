@@ -11,7 +11,7 @@ import com.example.appchamadainterface.R
 import com.example.appchamadainterface.SubjectDetailActivity
 import kotlinx.android.synthetic.main.item_subject.view.*
 
-class StudentSubjectsAdapter (private val items: List<Subject>, private val c : Context) : RecyclerView.Adapter<StudentSubjectsAdapter.ViewHolder>() {
+class ProfessorSubjectsAdapter (private val items: List<Subject>, private val c : Context) : RecyclerView.Adapter<ProfessorSubjectsAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
@@ -42,7 +42,7 @@ class StudentSubjectsAdapter (private val items: List<Subject>, private val c : 
             intent.putExtra("subject_title", subject.title)
             intent.putStringArrayListExtra("subject_classes", subject.classes)
             intent.putExtra("subject_maxMissedClasses", subject.maxMissedClasses)
-            intent.putExtra("user", "student")
+            intent.putExtra("user", "professor")
             ctx.startActivity(intent)
         }
     }

@@ -8,18 +8,25 @@
     <string name="subjects">Disciplinas</string>
     <string name="subject_code">Código da disciplina</string>
     <string name="hint_code">Código</string>
+    <string name="subject_name">Nome</string>
+    <string name="hint_name">Nome da disciplina</string>
     <string name="classes">Aulas</string>
-    <string name="subject_missed_classes">Número de faltas: </string>
-    <string name="subject_max_missed_classes">Número máximo de faltas: </string>
+    <string name="subject_missed_classes">Número de faltas:</string>
+    <string name="subject_max_missed_classes">Número máximo de faltas:</string>
 
     <!-- Aluno -->
     <string name="subject_enroll">Inscreva-se em uma disciplina</string>
     <string name="subject_enroll_confirm">Inscrever-se</string>
 
     <!-- Professor -->
+    <string name="subject_registration">Cadastrar disciplina</string>
+    <string name="subject_registration_confirm">Cadastrar</string>
+    <string name="subject_schedule">Dias da semana e horários</string>
 
     <!-- Image Content Description -->
     <string name="next_screen">Pŕoxima página</string>
     <string name="profile_picture">Foto de perfil</string>
+    <string name="calendar">Calendário</string>
+    <string name="export">Exportar</string>
 
 </resources>

@@ -25,7 +25,7 @@
             android:layout_below="@id/tv_student_subject_enroll"/>
 
     <EditText
-            android:id="@+id/edt_student_hint_code"
+            android:id="@+id/edt_student_subject_hint_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/hint_code"
