@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AppAttendance</string>
+
+    <!-- General -->
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+
+    <!-- LoginActivity -->
+    <string name="sign_in">Entrar</string>
+    <string name="sign_up">Cadastre-se</string>
+
+    <!-- RegisterActivity -->
+    <string name="name">Nome Completo</string>
+    <string name="username">Nome de Usuário</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="professor">Professor</string>
+    <string name="student">Aluno</string>
+
+</resources>

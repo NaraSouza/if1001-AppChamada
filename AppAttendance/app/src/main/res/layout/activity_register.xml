@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RegisterActivity"
+        android:layout_margin="10dp">
+
+    <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:autofillHints="@string/name"
+            android:selectAllOnFocus="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+
+    <EditText
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:autofillHints="@string/username"
+            android:selectAllOnFocus="true"
+            android:layout_below="@id/edt_name"
+            android:layout_centerHorizontal="true"/>
+
+    <RadioGroup
+            android:id="@+id/rg_user_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_username"
+            android:orientation="horizontal">
+
+        <RadioButton
+                android:id="@+id/rb_professor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/professor"
+                android:layout_marginEnd="50dp"/>
+
+        <RadioButton
+                android:id="@+id/rb_student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/student"/>
+
+    </RadioGroup>
+
+    <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:autofillHints="@string/email"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:layout_below="@id/rg_user_type"/>
+
+
+    <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:autofillHints="@string/password"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:layout_below="@id/edt_email"/>
+
+    <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:text="@string/create_account"
+            android:layout_below="@id/edt_password"
+            android:layout_centerHorizontal="true"/>
+
+    <ProgressBar
+            android:id="@+id/pb_loading"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"/>
+
+</RelativeLayout>
