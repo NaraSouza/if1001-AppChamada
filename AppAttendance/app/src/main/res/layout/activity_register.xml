@@ -70,12 +70,22 @@
             android:selectAllOnFocus="true"
             android:layout_below="@id/edt_email"/>
 
+    <TextView
+            android:id="@+id/tv_registration_error"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registration_error"
+            android:layout_below="@id/edt_password"
+            android:textColor="@color/colorError"
+            android:textSize="15sp"/>
+
     <Button
             android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="@string/create_account"
             android:layout_below="@id/edt_password"
             android:layout_centerHorizontal="true"/>
@@ -85,7 +95,7 @@
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:elevation="10dp"
             android:layout_centerInParent="true"/>
 
 </RelativeLayout>

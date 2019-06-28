@@ -15,10 +15,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //botao de login
         btn_sign_in.setOnClickListener {
             val email = edt_email.text.toString()
             val password = edt_password.text.toString()
 
+            //verifica se os campos de email e senha foram preenchidos
             if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
                 pb_loading.visibility = View.VISIBLE
 
@@ -35,16 +37,18 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        //botao para tela de cadastro
         btn_sign_up.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(Intent(intent))
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
     }
 
+    /**
+     * Envia usuario logado para a Main Activity
+     */
     private fun updateUI() {
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        //mata activity atual para que usuario nao volte para ela apos logar
+        finish()
     }
 }
