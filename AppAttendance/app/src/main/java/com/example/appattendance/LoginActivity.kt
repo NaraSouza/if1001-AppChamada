@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
             //verifica se os campos de email e senha foram preenchidos
             if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+                btn_sign_in.isEnabled = false
                 pb_loading.visibility = View.VISIBLE
 
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
@@ -41,6 +42,14 @@ class LoginActivity : AppCompatActivity() {
         btn_sign_up.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
+    }
+
+    override fun onStart() {
+        if(FirebaseAuth.getInstance().currentUser != null) {
+            updateUI()
+        }
+
+        super.onStart()
     }
 
     /**

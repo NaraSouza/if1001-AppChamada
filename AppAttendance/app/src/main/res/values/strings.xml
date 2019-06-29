@@ -8,6 +8,8 @@
     <!-- MainActivity -->
     <string name="welcome">Bem-vindo(a),</string>
     <string name="username_placeholder">usuário</string>
+    <string name="sign_out">Sair</string>
+    <string name="subjects">Disciplinas</string>
 
     <!-- LoginActivity -->
     <string name="sign_in">Entrar</string>

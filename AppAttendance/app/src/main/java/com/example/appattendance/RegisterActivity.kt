@@ -82,12 +82,16 @@ class RegisterActivity : AppCompatActivity() {
                             userReference.child("regdate").setValue(regdate)
 
                             //caso usuario seja um professor
-                            val profReference = mDatabase.reference.child("professors").child(userId)
-                            profReference.child("name").setValue(name)
+                            if(type.contentEquals("professor")) {
+                                val profReference = mDatabase.reference.child("professors").child(userId)
+                                profReference.child("name").setValue(name)
+                            }
 
                             //caso usuario seja um aluno
-                            val studReference = mDatabase.reference.child("students").child(userId)
-                            studReference.child("name").setValue(name)
+                            if(type.contentEquals("student")) {
+                                val studReference = mDatabase.reference.child("students").child(userId)
+                                studReference.child("name").setValue(name)
+                            }
 
                             updateUI()
                         } else {
