@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:context=".AddSubjectActivity">
+
+    <TextView
+            android:id="@+id/tv_join_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/join_class"
+            android:textSize="20sp"/>
+
+    <TextView
+            android:id="@+id/tv_insert_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_join_class"
+            android:layout_marginTop="15dp"
+            android:text="@string/insert_code"
+            android:textSize="15sp"/>
+
+    <EditText
+            android:id="@+id/edt_insert_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_insert_code"
+            android:autofillHints="@string/insert_code_hint"
+            android:selectAllOnFocus="true"
+            android:inputType="text"
+            android:layout_marginTop="20dp"
+            android:text="@string/insert_code_hint"
+            android:textSize="16sp"/>
+
+    <Button
+            android:id="@+id/btn_join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_insert_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/join"/>
+
+    <Button
+            android:id="@+id/btn_create"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_join"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/create"/>
+
+</RelativeLayout>

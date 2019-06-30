@@ -23,4 +23,11 @@
     <string name="student">Aluno</string>
     <string name="registration_error">E-mail já cadastrado</string>
 
+    <!-- AddSubjectActivity -->
+    <string name="join_class">Participar da turma</string>
+    <string name="insert_code">Peça para seu professor o código da turma e digite-o aqui</string>
+    <string name="insert_code_hint">Código</string>
+    <string name="join">Participar</string>
+    <string name="create">Criar turma</string>
+
 </resources>

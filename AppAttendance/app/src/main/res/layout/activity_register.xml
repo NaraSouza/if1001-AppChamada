@@ -13,8 +13,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/name"
             android:autofillHints="@string/name"
+            android:inputType="text"
             android:selectAllOnFocus="true"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"/>
 
     <EditText
@@ -23,9 +23,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/username"
             android:autofillHints="@string/username"
+            android:inputType="text"
             android:selectAllOnFocus="true"
-            android:layout_below="@id/edt_name"
-            android:layout_centerHorizontal="true"/>
+            android:layout_below="@id/edt_name"/>
 
     <RadioGroup
             android:id="@+id/rg_user_type"

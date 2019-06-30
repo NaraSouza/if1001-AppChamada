@@ -43,6 +43,12 @@ class MainActivity : AppCompatActivity() {
             //mata activity atual para que usuario nao volte para ela apos se cadastrar e logar
             finish()
         }
+
+        fab_add_subject.setOnClickListener{
+            val intent = Intent(this@MainActivity, AddSubjectActivity::class.java)
+            intent.putExtra("user_type", mUserType)
+            startActivity(intent)
+        }
     }
 
     /**
