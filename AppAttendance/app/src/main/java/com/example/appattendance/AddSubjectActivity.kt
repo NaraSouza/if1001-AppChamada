@@ -1,10 +1,12 @@
 package com.example.appattendance
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -30,13 +32,17 @@ class AddSubjectActivity : AppCompatActivity() {
 
             //botao para criar disciplina/turma
             btn_create.setOnClickListener {
-
+                startActivity(Intent(this@AddSubjectActivity, CreateSubjectActivity::class.java))
             }
         }
 
         //botao para participar de turma/disciplina
         btn_join.setOnClickListener {
             if(!TextUtils.isEmpty(edt_insert_code.text)) {
+                edt_insert_code.onEditorAction(EditorInfo.IME_ACTION_DONE)
+                pb_loading.visibility = View.VISIBLE
+                btn_join.isEnabled = false
+
                 //identificando disciplina
                 mDatabaseReference.child("subjects").orderByChild("regcode")
                     .equalTo(edt_insert_code.text.toString()).addListenerForSingleValueEvent(object : ValueEventListener {
@@ -66,8 +72,9 @@ class AddSubjectActivity : AppCompatActivity() {
 
                                 //identificando periodo corrente
                                 var period = ""
-                                mDatabaseReference.child("subjects").child(subjectId).child("periods").orderByChild("current")
-                                    .equalTo(true).addListenerForSingleValueEvent(object : ValueEventListener {
+                                mDatabaseReference.child("subjects").child(subjectId).child("periods")
+                                    .orderByChild("current").equalTo(true)
+                                    .addListenerForSingleValueEvent(object : ValueEventListener {
                                         override fun onDataChange(datasnapshot: DataSnapshot) {
                                             Log.d("Query result", datasnapshot.key.toString())
                                             datasnapshot.children.forEach {
@@ -76,6 +83,14 @@ class AddSubjectActivity : AppCompatActivity() {
 
                                                 reference.child(userId).child("subjects").child(subjectId)
                                                     .child("period").setValue(period)
+                                                //adicionando aluno na disciplina
+                                                if(userType.contentEquals("student")) {
+                                                    mDatabaseReference.child("subjects").child(subjectId)
+                                                        .child("periods").child(period).child("students")
+                                                        .child(userId).setValue(true)
+                                                }
+                                                Toast.makeText(this@AddSubjectActivity,
+                                                    "Turma adicionada com sucesso", Toast.LENGTH_SHORT).show()
                                             }
                                         }
 
@@ -92,7 +107,8 @@ class AddSubjectActivity : AppCompatActivity() {
                             Log.d("Falha", "Failed to read value.", error.toException())
                         }
                     })
-
+                pb_loading.visibility = View.GONE
+                btn_join.isEnabled = true
             } else {
                 Toast.makeText(this@AddSubjectActivity, "Insira o código da turma", Toast.LENGTH_SHORT).show()
             }

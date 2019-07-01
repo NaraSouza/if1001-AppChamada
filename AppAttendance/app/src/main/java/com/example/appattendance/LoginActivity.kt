@@ -3,6 +3,7 @@ package com.example.appattendance
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,10 +30,18 @@ class LoginActivity : AppCompatActivity() {
                     .addOnCompleteListener {task ->
                         if(task.isSuccessful) {
                             updateUI()
+                        }
+                    }
+                    .addOnFailureListener {
+                        if(it.message.equals("The password is invalid or the user does not have a password.")) {
+                            Toast.makeText(this@LoginActivity, "Senha incorreta", Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(this@LoginActivity, "Falha na autenticação", Toast.LENGTH_SHORT).show()
                         }
                     }
+
+                btn_sign_in.isEnabled = true
+                pb_loading.visibility = View.GONE
             } else {
                 Toast.makeText(this@LoginActivity, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }

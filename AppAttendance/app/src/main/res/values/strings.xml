@@ -4,6 +4,7 @@
     <!-- General -->
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
+    <string name="create_subject">Criar turma</string>
 
     <!-- MainActivity -->
     <string name="welcome">Bem-vindo(a),</string>
@@ -28,6 +29,21 @@
     <string name="insert_code">Peça para seu professor o código da turma e digite-o aqui</string>
     <string name="insert_code_hint">Código</string>
     <string name="join">Participar</string>
-    <string name="create">Criar turma</string>
+
+    <!-- CreateSubjectActivity -->
+    <string name="subject_code">Código da disciplina</string>
+    <string name="subject_name">Nome da disciplina</string>
+    <string name="classroom">Sala</string>
+    <string name="course_load">Carga horária</string>
+    <string name="week_days">Indique os dias da semana</string>
+    <string name="time_range">Indique o horário de aula nesse dia</string>
+    <string name="monday">Seg</string>
+    <string name="tuesday">Ter</string>
+    <string name="wednesday">Qua</string>
+    <string name="thursday">Qui</string>
+    <string name="friday">Sex</string>
+    <string name="hour_placeholder">00h00</string>
+    <string name="hyphen">-</string>
+    <string name="schedule_warning">É necessário selecionar ao menos um dia e preencher seu horário</string>
 
 </resources>

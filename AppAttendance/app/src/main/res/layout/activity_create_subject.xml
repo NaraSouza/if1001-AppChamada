@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:context=".CreateSubjectActivity">
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <EditText
+                android:id="@+id/edt_subject_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:autofillHints="@string/subject_code"
+                android:hint="@string/subject_code"/>
+
+        <EditText
+                android:id="@+id/edt_subject_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:autofillHints="@string/subject_name"
+                android:layout_below="@id/edt_subject_code"
+                android:hint="@string/subject_name"/>
+
+        <EditText
+                android:id="@+id/edt_classroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:autofillHints="@string/classroom"
+                android:layout_below="@id/edt_subject_name"
+                android:hint="@string/classroom"/>
+
+        <EditText
+                android:id="@+id/edt_course_load"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:autofillHints="@string/course_load"
+                android:layout_below="@id/edt_classroom"
+                android:hint="@string/course_load"/>
+
+        <TextView
+                android:id="@+id/tv_schedule_warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/edt_course_load"
+                android:text="@string/schedule_warning"/>
+
+        <LinearLayout
+                android:id="@+id/ll_monday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_schedule_warning"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <CheckBox
+                    android:id="@+id/cb_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monday"
+                    android:textSize="18sp"
+                    android:layout_below="@id/edt_course_load"
+                    android:layout_marginEnd="50dp"/>
+
+            <LinearLayout
+                    android:id="@+id/ll_time_range_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/time1_monday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:textSize="28sp"
+                        android:text="@string/hyphen"/>
+
+                <EditText
+                        android:id="@+id/time2_monday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:layout_marginStart="15dp"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_monday"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <CheckBox
+                    android:id="@+id/cb_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/tuesday"/>
+
+            <LinearLayout
+                    android:id="@+id/ll_time_range_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/time1_tuesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:textSize="28sp"
+                        android:text="@string/hyphen"/>
+
+                <EditText
+                        android:id="@+id/time2_tuesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:layout_marginStart="15dp"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_wednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_tuesday"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <CheckBox
+                    android:id="@+id/cb_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/wednesday"/>
+
+            <LinearLayout
+                    android:id="@+id/ll_time_range_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/time1_wednesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:textSize="28sp"
+                        android:text="@string/hyphen"/>
+
+                <EditText
+                        android:id="@+id/time2_wednesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:layout_marginStart="15dp"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_thursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_wednesday"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <CheckBox
+                    android:id="@+id/cb_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/thursday"/>
+
+            <LinearLayout
+                    android:id="@+id/ll_time_range_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/time1_thursday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:textSize="28sp"
+                        android:text="@string/hyphen"/>
+
+                <EditText
+                        android:id="@+id/time2_thursday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:layout_marginStart="15dp"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_friday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_thursday"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <CheckBox
+                    android:id="@+id/cb_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/friday"/>
+
+            <LinearLayout
+                    android:id="@+id/ll_time_range_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/time1_friday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:textSize="28sp"
+                        android:text="@string/hyphen"/>
+
+                <EditText
+                        android:id="@+id/time2_friday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:layout_marginStart="15dp"
+                        android:autofillHints="@string/hour_placeholder"
+                        android:hint="@string/hour_placeholder"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+                android:id="@+id/btn_create_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_subject"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/ll_friday"/>
+
+        <ProgressBar
+                android:id="@+id/pb_loading"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</ScrollView>
