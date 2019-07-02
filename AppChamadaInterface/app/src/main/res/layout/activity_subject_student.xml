@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:context=".StudentActivity">
+
+    <TextView
+            android:id="@+id/tv_student_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:id="@+id/tv_student_subjects"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subjects"
+            android:layout_below="@id/tv_student_home"
+            android:layout_marginTop="20dp"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_student_subjects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_student_subjects"
+            android:layout_marginTop="20dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_student_add_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_action_add"
+            android:layout_margin="16dp"/>
+
+</RelativeLayout>

@@ -5,7 +5,6 @@
     <string name="generic_name">Maria Vieira</string>
     <string name="logout">Deslogar</string>
     <string name="home">Página Inicial</string>
-    <string name="subjects">Disciplinas</string>
     <string name="subject_code">Código da disciplina</string>
     <string name="hint_code">Código</string>
     <string name="subject_name">Nome</string>
@@ -13,6 +12,8 @@
     <string name="classes">Aulas</string>
     <string name="subject_missed_classes">Número de faltas:</string>
     <string name="subject_max_missed_classes">Número máximo de faltas:</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Aluno -->
     <string name="subject_enroll">Inscreva-se em uma disciplina</string>
@@ -28,5 +29,9 @@
     <string name="profile_picture">Foto de perfil</string>
     <string name="calendar">Calendário</string>
     <string name="export">Exportar</string>
+    <string name="subjects">Disciplinas</string>
+    <string name="reports">Relatórios</string>
+    <string name="profile">Perfil</string>
+    <string name="about">Sobre</string>
 
 </resources>
