@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:context=".AddClassActivity">
+
+    <EditText
+            android:id="@+id/edt_class_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/class_title_placeholder"/>
+
+    <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/class_date"
+            android:textSize="18sp"
+            android:layout_marginEnd="25dp"
+            android:layout_below="@id/edt_class_title"/>
+
+    <TextView
+            android:id="@+id/tv_class_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@id/edt_class_title"
+            android:layout_toEndOf="@id/tv_date"/>
+
+    <Button
+            android:id="@+id/btn_create_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/create_class"
+            android:layout_below="@id/tv_class_date"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

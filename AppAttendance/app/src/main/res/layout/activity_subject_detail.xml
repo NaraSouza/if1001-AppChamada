@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -7,64 +7,67 @@
         android:layout_margin="10dp"
         tools:context=".SubjectDetailActivity">
 
-    <RelativeLayout
+    <TextView
+            android:id="@+id/tv_subject_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:id="@+id/tv_classroom"
+            android:layout_below="@id/tv_subject_title"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tv_schedules"
+            android:layout_below="@id/tv_classroom"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tv_professor"
+            android:layout_below="@id/tv_schedules"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tv_classes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/classes"
+            android:layout_below="@id/tv_professor"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_classes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_classes"
+            android:layout_marginTop="30dp"/>
 
-        <TextView
-                android:id="@+id/tv_subject_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_centerHorizontal="true"/>
-
-        <TextView
-                android:id="@+id/tv_classroom"
-                android:layout_below="@id/tv_subject_title"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        <TextView
-                android:id="@+id/tv_schedules"
-                android:layout_below="@id/tv_classroom"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        <TextView
-                android:id="@+id/tv_professor"
-                android:layout_below="@id/tv_schedules"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        <TextView
-                android:id="@+id/tv_classes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/classes"
-                android:layout_below="@id/tv_professor"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="25dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_classes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_classes"
-                android:layout_marginTop="30dp"/>
+    <LinearLayout
+            android:id="@+id/ll_fab"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginBottom="180dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_add_class"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_white_45dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="180dp"/>
+                android:src="@drawable/ic_add_white_45dp"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

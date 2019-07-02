@@ -1,12 +1,15 @@
 package com.example.appattendance
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appattendance.adapters.ClassesAdapter
 import com.example.appattendance.models.Class
+import com.example.appattendance.models.Schedule
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -33,16 +36,20 @@ class SubjectDetailActivity : AppCompatActivity() {
         val subjectName = extras.getString("subject_name")
         val subjectTitle = "$subjectCode - $subjectName"
         tv_subject_title.text = subjectTitle
+        val subjectPeriod = extras.getString("subject_period")
 
-        getUserInfo(subjectCode!!, extras.getString("subject_period")!!)
-
-        if(mUserType!!.contentEquals("")) {
-
-        }
+        getUserInfo(subjectCode!!, subjectPeriod!!)
 
         rv_classes.apply {
             layoutManager = LinearLayoutManager(applicationContext)
             addItemDecoration(DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL))
+        }
+
+        fab_add_class.setOnClickListener {
+            val intent  = Intent(this@SubjectDetailActivity, AddClassActivity::class.java)
+            intent.putExtra("subject_code", subjectCode)
+            intent.putExtra("subject_period", subjectPeriod)
+            startActivity(intent)
         }
     }
 
@@ -64,12 +71,15 @@ class SubjectDetailActivity : AppCompatActivity() {
                 //pegando lista de aulas da disciplina
                 if(subjectSnapshot.child("classes").exists()) {
                     var classTitle : String
-                    var attendance : Int
+                    var attendance = 0
                     var classDate : String
+
+                    mListClasses.clear()
 
                     subjectSnapshot.child("classes").children.forEach {
                         classTitle = it.child("title").value.toString()
-                        attendance = it.child("attendance").getValue(Int::class.java)!!
+                        if(it.hasChild("attendance"))
+                            attendance = it.child("attendance").getValue(Int::class.java)!!
                         classDate = it.key.toString()
 
                         mListClasses.add(Class(classTitle, attendance, classDate))
@@ -86,14 +96,20 @@ class SubjectDetailActivity : AppCompatActivity() {
 
                 var timerange : String
                 var weekday : String
-                var schedule : String
-                var tmp : String
+                val listSchedules = mutableListOf<Schedule>()
                 //pegando lista de dias e horarios
                 subjectSnapshot.child("schedules").children.forEach {
                     timerange = it.child("timerange").value.toString()
                     weekday= it.child("weekday").value.toString()
 
-                    schedule = "$weekday $timerange"
+                    listSchedules.add(Schedule(timerange, weekday))
+                }
+
+                var schedule : String
+                var tmp : String
+                tv_schedules.text = ""
+                listSchedules.forEach {
+                    schedule = it.weekday + " " + it.timerange
                     tmp = tv_schedules.text.toString()
                     tmp = "$tmp $schedule\n"
                     tv_schedules.text = tmp
@@ -107,6 +123,8 @@ class SubjectDetailActivity : AppCompatActivity() {
                 if(mUserType!!.contentEquals("professor")) {
                     val studentsCount = subjectSnapshot.child("studentscount")
                     //TODO numero total de alunos na disciplina para calcular percentual de presença na aula e na disciplina
+
+                    ll_fab.visibility = View.VISIBLE
 
                 } else if(mUserType!!.contentEquals("student")) {
                     var professor = subjectSnapshot.child("professor").value.toString()
