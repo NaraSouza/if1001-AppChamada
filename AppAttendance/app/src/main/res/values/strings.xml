@@ -5,6 +5,7 @@
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
     <string name="create_subject">Criar turma</string>
+    <string name="subject_code">Código da disciplina</string>
 
     <!-- MainActivity -->
     <string name="welcome">Bem-vindo(a),</string>
@@ -31,7 +32,6 @@
     <string name="join">Participar</string>
 
     <!-- CreateSubjectActivity -->
-    <string name="subject_code">Código da disciplina</string>
     <string name="subject_name">Nome da disciplina</string>
     <string name="classroom">Sala</string>
     <string name="course_load">Carga horária</string>
@@ -45,5 +45,14 @@
     <string name="hour_placeholder">00h00</string>
     <string name="hyphen">-</string>
     <string name="schedule_warning">É necessário selecionar ao menos um dia e preencher seu horário</string>
+    <string name="class_already_exists_error">Já existe uma turma para essa disciplina no período corrente. Código da turma:
+    </string>
+
+    <!-- SubjectDetailActivity-->
+    <string name="classes">Aulas</string>
+    <string name="class_title_placeholder">Título</string>
+    <string name="class_date_placeholder">00/00/0000</string>
+    <string name="class_attendance">Presença:</string>
+    <string name="class_attendance_percent_placeholder">0%</string>
 
 </resources>

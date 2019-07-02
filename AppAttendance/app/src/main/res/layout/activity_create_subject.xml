@@ -306,12 +306,21 @@
 
         </LinearLayout>
 
+        <TextView
+                android:id="@+id/tv_class_exists_error"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/class_already_exists_error"
+                android:textColor="@color/red"
+                android:layout_below="@id/ll_friday"/>
+
         <Button
                 android:id="@+id/btn_create_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/create_subject"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="45dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/ll_friday"/>
 

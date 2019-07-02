@@ -5,4 +5,5 @@
     <color name="colorAccent">#FFC50C</color>
 
     <color name="red">#FF0000</color>
+    <color name="darkGray">#1B1B1B</color>
 </resources>

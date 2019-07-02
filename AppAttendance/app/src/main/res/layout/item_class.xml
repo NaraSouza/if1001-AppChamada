@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_marginTop="15dp"
+              android:layout_width="match_parent"
+              android:weightSum="1"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/class_date"
+                android:textColor="@color/darkGray"
+                android:layout_width="wrap_content"
+                android:text="@string/class_date_placeholder"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/class_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="@string/class_title_placeholder"/>
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/class_attendance"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:text="@string/class_attendance"/>
+
+    <TextView
+            android:id="@+id/class_attendance_percent"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
+            android:text="@string/class_attendance_percent_placeholder"/>
+
+</LinearLayout>

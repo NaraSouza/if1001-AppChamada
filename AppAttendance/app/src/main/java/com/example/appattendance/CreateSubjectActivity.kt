@@ -2,13 +2,17 @@ package com.example.appattendance
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_add_subject.*
 import kotlinx.android.synthetic.main.activity_create_subject.*
+import kotlinx.android.synthetic.main.activity_create_subject.pb_loading
 import kotlinx.android.synthetic.main.item_subject.*
 import java.util.*
 
@@ -59,9 +63,10 @@ class CreateSubjectActivity : AppCompatActivity() {
                                 .hasChild(period)) {
                             regCode = dataSnapshot.child(subjectCode).child("regcode").value.toString()
 
-                            Toast.makeText(this@CreateSubjectActivity, "Já existe uma turma para " +
-                                    "essa disciplina no período corrente. Código da turma: $regCode",
-                                Toast.LENGTH_LONG).show()
+                            var error_text = tv_class_exists_error.text.toString()
+                            error_text = "$error_text $regCode"
+                            tv_class_exists_error.text = error_text
+                            tv_class_exists_error.visibility = View.VISIBLE
                         } else {
                             //cadastrando disciplina
                             reference.child(subjectCode).child("name").setValue(subjectName)
@@ -164,6 +169,21 @@ class CreateSubjectActivity : AppCompatActivity() {
                 Toast.makeText(this@CreateSubjectActivity, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
         }
+
+        //tirar mensagem de turma já cadastrada ao apagar campo de código da turma
+        edt_subject_code.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                tv_class_exists_error.visibility = View.GONE
+            }
+        })
     }
 
     /**
