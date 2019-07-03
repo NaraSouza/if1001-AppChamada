@@ -30,18 +30,28 @@ class LoginActivity : AppCompatActivity() {
                     .addOnCompleteListener {task ->
                         if(task.isSuccessful) {
                             updateUI()
+                        } else {
+                            btn_sign_in.isEnabled = true
+                            pb_loading.visibility = View.GONE
                         }
                     }
                     .addOnFailureListener {
-                        if(it.message.equals("The password is invalid or the user does not have a password.")) {
-                            Toast.makeText(this@LoginActivity, "Senha incorreta", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(this@LoginActivity, "Falha na autenticação", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+                        when(it.message.toString()) {
+                            "The email address is badly formatted." -> Toast.makeText(this@LoginActivity,
+                                "Digite um e-mail válido", Toast.LENGTH_SHORT).show()
+                            "The password is invalid or the user does not have a password." ->
+                                    Toast.makeText(this@LoginActivity, "Senha incorreta", Toast.LENGTH_SHORT).show()
+                            "There is no user record corresponding to this identifier. The user may have been deleted." ->
+                                Toast.makeText(this@LoginActivity, "E-mail não cadastrado", Toast.LENGTH_SHORT).show()
+                            else -> {
+                                Toast.makeText(this@LoginActivity, "Falha na autenticação", Toast.LENGTH_SHORT).show()
+                                Log.d("Erro no login", it.message.toString())
+                            }
 
-                btn_sign_in.isEnabled = true
-                pb_loading.visibility = View.GONE
+                        }
+                        btn_sign_in.isEnabled = true
+                        pb_loading.visibility = View.GONE
+                    }
             } else {
                 Toast.makeText(this@LoginActivity, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }

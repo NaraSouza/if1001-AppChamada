@@ -84,16 +84,17 @@ class MainActivity : AppCompatActivity() {
                 if(snapshot.child("subjects").exists()) {
                     var subjectCode : String?
                     var subjectName : String?
-                    var subjectPeriod : String?
+                    //var subjectPeriod : String?
 
                     mListSubjects.clear()
 
                     snapshot.child("subjects").children.forEach {
                         subjectCode = it.key.toString()
                         subjectName = it.child("name").getValue(String::class.java)
-                        subjectPeriod = it.child("period").getValue(String::class.java)
+                        //modificacoes por issue #14 do github
+                        //subjectPeriod = it.child("period").getValue(String::class.java)
 
-                        mListSubjects.add(Subject(subjectName!!, subjectCode!!, subjectPeriod!!))
+                        mListSubjects.add(Subject(subjectName!!, subjectCode!!))
                         Log.d("ListSubjects", "adicionando item na lista" + mListSubjects.toString() + mListSubjects.size)
                     }
 

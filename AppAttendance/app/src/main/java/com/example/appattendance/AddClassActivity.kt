@@ -51,6 +51,7 @@ class AddClassActivity : AppCompatActivity() {
                     .setValue(title)
 
                 Toast.makeText(this@AddClassActivity, "Aula criada com sucesso", Toast.LENGTH_SHORT).show()
+                finish()
             } else {
                 Toast.makeText(this@AddClassActivity, "Digite o título da aula", Toast.LENGTH_SHORT).show()
             }

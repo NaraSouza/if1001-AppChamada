@@ -51,8 +51,6 @@ class AddSubjectActivity : AppCompatActivity() {
                             datasnapshot.children.forEach {
                                 subjectId = it.key.toString()
                                 subjectName = it.child("name").value.toString()
-                                Log.d("ID da disciplina", subjectId)
-                                Log.d("Nome da disciplina", subjectName)
 
                                 //escrevendo dados da disciplina nos respectivos campos de professor/aluno
                                 val userEmail = mAuth.currentUser!!.email.toString()
@@ -66,38 +64,26 @@ class AddSubjectActivity : AppCompatActivity() {
                                     reference = mDatabaseReference.child("students")
                                 }
 
+                                //identificando periodo corrente
+                                var period = ""
+                                it.child("periods").children.forEach {
+                                    if(it.child("current").value == true) {
+                                        period = it.key.toString()
+                                    }
+                                }
                                 reference.child(userId).child("subjects").child(subjectId)
                                     .child("name").setValue(subjectName)
+                                reference.child(userId).child("subjects").child(subjectId)
+                                    .child("period").setValue(period)
 
-                                //identificando periodo corrente
-                                var period : String
-                                mDatabaseReference.child("subjects").child(subjectId).child("periods")
-                                    .orderByChild("current").equalTo(true)
-                                    .addListenerForSingleValueEvent(object : ValueEventListener {
-                                        override fun onDataChange(datasnapshot: DataSnapshot) {
-                                            Log.d("Query result", datasnapshot.key.toString())
-                                            datasnapshot.children.forEach { it2 ->
-                                                period = it2.key.toString()
-                                                Log.d("Period", period)
-
-                                                reference.child(userId).child("subjects").child(subjectId)
-                                                    .child("period").setValue(period)
-                                                //adicionando aluno na disciplina
-                                                if(userType.contentEquals("student")) {
-                                                    mDatabaseReference.child("subjects").child(subjectId)
-                                                        .child("periods").child(period).child("students")
-                                                        .child(userId).setValue(true)
-                                                }
-                                                Toast.makeText(this@AddSubjectActivity,
-                                                    "Turma adicionada com sucesso", Toast.LENGTH_SHORT).show()
-                                            }
-                                        }
-
-                                        override fun onCancelled(error: DatabaseError) {
-                                            // Failed to read value
-                                            Log.d("Falha", "Failed to read value.", error.toException())
-                                        }
-                                    })
+                                //adicionando aluno na disciplina
+                                if(userType.contentEquals("student")) {
+                                    mDatabaseReference.child("subjects").child(subjectId)
+                                        .child("periods").child(period).child("students")
+                                        .child(userId).setValue(true)
+                                }
+                                Toast.makeText(this@AddSubjectActivity,
+                                    "Turma adicionada com sucesso", Toast.LENGTH_SHORT).show()
                             }
                         }
 
