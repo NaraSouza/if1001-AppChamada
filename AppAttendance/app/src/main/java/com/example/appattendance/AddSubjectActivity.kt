@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_add_subject.*
-import java.lang.Boolean.TRUE
 
 class AddSubjectActivity : AppCompatActivity() {
     private lateinit var mAuth : FirebaseAuth
@@ -47,8 +46,8 @@ class AddSubjectActivity : AppCompatActivity() {
                 mDatabaseReference.child("subjects").orderByChild("regcode")
                     .equalTo(edt_insert_code.text.toString()).addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(datasnapshot: DataSnapshot) {
-                            var subjectId = ""
-                            var subjectName = ""
+                            var subjectId : String
+                            var subjectName : String
                             datasnapshot.children.forEach {
                                 subjectId = it.key.toString()
                                 subjectName = it.child("name").value.toString()
@@ -71,14 +70,14 @@ class AddSubjectActivity : AppCompatActivity() {
                                     .child("name").setValue(subjectName)
 
                                 //identificando periodo corrente
-                                var period = ""
+                                var period : String
                                 mDatabaseReference.child("subjects").child(subjectId).child("periods")
                                     .orderByChild("current").equalTo(true)
                                     .addListenerForSingleValueEvent(object : ValueEventListener {
                                         override fun onDataChange(datasnapshot: DataSnapshot) {
                                             Log.d("Query result", datasnapshot.key.toString())
-                                            datasnapshot.children.forEach {
-                                                period = it.key.toString()
+                                            datasnapshot.children.forEach { it2 ->
+                                                period = it2.key.toString()
                                                 Log.d("Period", period)
 
                                                 reference.child(userId).child("subjects").child(subjectId)

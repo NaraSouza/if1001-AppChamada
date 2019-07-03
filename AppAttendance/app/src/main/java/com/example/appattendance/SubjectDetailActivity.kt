@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appattendance.adapters.ClassesAdapter
 import com.example.appattendance.models.Class
 import com.example.appattendance.models.Schedule
+import com.google.android.gms.nearby.Nearby
+import com.google.android.gms.nearby.messages.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,8 +22,9 @@ import kotlinx.android.synthetic.main.activity_subject_detail.*
 
 class SubjectDetailActivity : AppCompatActivity() {
     private lateinit var mAuth : FirebaseAuth
-    private var mUserType : String? = ""
     private lateinit var mListClasses : MutableList<Class>
+    private var mUserId : String = ""
+    private var mMessage : Message? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +34,9 @@ class SubjectDetailActivity : AppCompatActivity() {
 
         //pegando instancia do usuario autenticado
         mAuth = FirebaseAuth.getInstance()
+
+        val userEmail = mAuth.currentUser!!.email.toString()
+        mUserId = userEmail.replace(".", "")
 
         val extras = intent.extras
         val subjectCode = extras!!.getString("subject_code")
@@ -45,12 +52,47 @@ class SubjectDetailActivity : AppCompatActivity() {
             addItemDecoration(DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL))
         }
 
+        //botao para adicionar aula em disciplina (apenas para professor)
         fab_add_class.setOnClickListener {
             val intent  = Intent(this@SubjectDetailActivity, AddClassActivity::class.java)
             intent.putExtra("subject_code", subjectCode)
             intent.putExtra("subject_period", subjectPeriod)
             startActivity(intent)
         }
+
+        //botao para confirmar presenca em aula (apenas para aluno)
+        fab_confirm_attendance.setOnClickListener {
+            val pubStrategy = Strategy.Builder().setDistanceType(Strategy.DISTANCE_TYPE_DEFAULT)
+                .setTtlSeconds(Strategy.TTL_SECONDS_DEFAULT).build()
+            val pubOptions = PublishOptions.Builder()
+                .setStrategy(pubStrategy)
+                .setCallback(object : PublishCallback() {
+                    override fun onExpired() {
+                        Toast.makeText(this@SubjectDetailActivity,"Mensagem expirada", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                .build()
+
+            val buffer = StringBuffer()
+            //envia id do aluno para que na visao de professor este seja recebido e a presenca do aluno seja salva no Firebase
+            buffer.append(mUserId)
+            mMessage = Message(buffer.toString().toByteArray())
+
+            Nearby.getMessagesClient(this)
+                .publish(mMessage!!, pubOptions)
+                .addOnSuccessListener(this) { Toast.makeText(this@SubjectDetailActivity,"Mensagem enviada",
+                    Toast.LENGTH_SHORT).show() }
+                .addOnFailureListener(this) { e -> Log.d("Nearby", "falha: $e.localizedMessage")
+                    Toast.makeText(this@SubjectDetailActivity,"Erro no envio", Toast.LENGTH_SHORT).show()}
+        }
+    }
+
+    override fun onStop() {
+        //cancela envio de mensagem, caso esta nao seja nula
+        if(mMessage != null)
+            Nearby.getMessagesClient(this).unpublish(mMessage!!)
+
+        super.onStop()
     }
 
     /**
@@ -116,21 +158,20 @@ class SubjectDetailActivity : AppCompatActivity() {
                 }
 
                 //identificando tipo de usuario
-                val userEmail = mAuth.currentUser!!.email.toString()
-                val userId = userEmail.replace(".", "")
-
-                mUserType = dataSnapshot.child("users").child(userId).child("type").getValue(String::class.java)
-                if(mUserType!!.contentEquals("professor")) {
+                val userType = dataSnapshot.child("users").child(mUserId).child("type").getValue(String::class.java)
+                if(userType!!.contentEquals("professor")) {
                     val studentsCount = subjectSnapshot.child("studentscount")
                     //TODO numero total de alunos na disciplina para calcular percentual de presença na aula e na disciplina
 
-                    ll_fab.visibility = View.VISIBLE
+                    ll_fab_professor.visibility = View.VISIBLE
 
-                } else if(mUserType!!.contentEquals("student")) {
+                } else if(userType.contentEquals("student")) {
                     var professor = subjectSnapshot.child("professor").value.toString()
                     professor = "Professor(a) " + dataSnapshot.child("professors").child(professor).child("name")
                         .value.toString()
                     tv_professor.text = professor
+
+                    ll_fab_student.visibility = View.VISIBLE
                 }
             }
 

@@ -10,10 +10,8 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_add_subject.*
 import kotlinx.android.synthetic.main.activity_create_subject.*
 import kotlinx.android.synthetic.main.activity_create_subject.pb_loading
-import kotlinx.android.synthetic.main.item_subject.*
 import java.util.*
 
 class CreateSubjectActivity : AppCompatActivity() {
@@ -58,14 +56,14 @@ class CreateSubjectActivity : AppCompatActivity() {
                 //verificando se ja existe uma turma da disciplina no periodo corrente
                 reference.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        var regCode = ""
+                        val regCode : String
                         if(dataSnapshot.hasChild(subjectCode) && dataSnapshot.child(subjectCode).child("periods")
                                 .hasChild(period)) {
                             regCode = dataSnapshot.child(subjectCode).child("regcode").value.toString()
 
-                            var error_text = tv_class_exists_error.text.toString()
-                            error_text = "$error_text $regCode"
-                            tv_class_exists_error.text = error_text
+                            var errorText = tv_class_exists_error.text.toString()
+                            errorText = "$errorText $regCode"
+                            tv_class_exists_error.text = errorText
                             tv_class_exists_error.visibility = View.VISIBLE
                         } else {
                             //cadastrando disciplina
@@ -88,7 +86,7 @@ class CreateSubjectActivity : AppCompatActivity() {
                                 .child("subjects").child(subjectCode).child("period")
                                 .setValue(period)
                             var count = 0
-                            var timerange = ""
+                            var timerange : String
                             val reference2 = reference.child(subjectCode).child("periods")
                                 .child(period).child("schedules")
                             if(cb_monday.isChecked) {
@@ -133,7 +131,7 @@ class CreateSubjectActivity : AppCompatActivity() {
                             }
 
                             //setando periodo anterior para current==false
-                            var olderPeriod = ""
+                            var olderPeriod : String
                             reference.child(subjectCode).child("periods").orderByChild("current")
                                 .equalTo(true).addListenerForSingleValueEvent(object : ValueEventListener {
                                     override fun onDataChange(dataSnapshot: DataSnapshot) {
