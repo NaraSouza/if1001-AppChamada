@@ -34,9 +34,12 @@ class StudentActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             R.id.subject -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SubjectActivity()).commit()
             }
-//            R.id.profile -> {
-//                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
-//            }
+            R.id.reports -> {
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ReportStudentActivity()).commit()
+            }
+            R.id.about -> {
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, AboutActivity()).commit()
+            }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true

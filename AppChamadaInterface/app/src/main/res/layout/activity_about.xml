@@ -1,18 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context=".ProfessorActivity">
+    tools:context=".AboutActivity">
 
     <TextView
-        android:id="@+id/tv_professor_home"
+        android:id="@+id/tv_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/about"
         android:textSize="26sp"
         android:textColor="@color/colorBlack"
         android:fontFamily="@font/aladin"/>
@@ -27,27 +28,25 @@
         android:background="@color/colorGray"/>
 
     <TextView
-        android:id="@+id/tv_professor_subjects"
+        android:id="@+id/tv_infos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/subjects"
-        android:layout_below="@id/divider"
-        android:layout_marginTop="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginStart="80dp"
+        android:textAlignment="center"
+        android:text="@string/info_project"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_professor_subjects"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tv_professor_subjects"
-        android:layout_marginTop="20dp"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_professor_add_subject"
+    <TextView
+        android:id="@+id/tv_dev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/ic_action_add"
-        android:layout_margin="16dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_infos"
+        android:layout_marginStart="80dp"
+        android:textAlignment="center"
+        android:text="@string/info_dev"/>
 
 </RelativeLayout>

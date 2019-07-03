@@ -33,5 +33,10 @@
     <string name="reports">Relatórios</string>
     <string name="profile">Perfil</string>
     <string name="about">Sobre</string>
+    <string name="por_aula">Por Aula</string>
+    <string name="por_periodo">Por Período</string>
+    <string name="porcentagem">Porcentagem</string>
+    <string name="info_project">Projeto desenvolvido para a disciplina de Programação 3, do curso de Sistemas da Informação, no Centro de Informática (UFPE).</string>
+    <string name="info_dev">Desenvolvido por Miriane Silva (mstn) e Nara Souza (nsa2).</string>
 
 </resources>

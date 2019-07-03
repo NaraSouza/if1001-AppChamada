@@ -21,6 +21,12 @@
         </activity>
         <activity android:name=".ProfessorActivity">
         </activity>
+        <activity android:name=".ChartAulaActivity">
+        </activity>
+        <activity android:name=".ChartPeriodoActivity">
+        </activity>
+        <activity android:name=".ChartPorcentagemActivity">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

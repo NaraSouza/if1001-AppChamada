@@ -13,14 +13,26 @@
             android:layout_height="wrap_content"
             android:text="@string/home"
             android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:textSize="26sp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/aladin"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/colorGray"/>
 
     <TextView
             android:id="@+id/tv_student_subjects"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/subjects"
-            android:layout_below="@id/tv_student_home"
+            android:layout_below="@id/divider"
             android:layout_marginTop="20dp"/>
 
     <android.support.v7.widget.RecyclerView

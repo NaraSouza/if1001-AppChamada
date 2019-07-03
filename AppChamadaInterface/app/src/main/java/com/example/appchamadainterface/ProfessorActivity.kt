@@ -32,12 +32,12 @@ class ProfessorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.subject -> {
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SubjectActivity()).commit()
             }
-//            R.id.reports -> {
-//                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ReportsFragment()).commit()
-//            }
-//            R.id.profile -> {
-//                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
-//            }
+            R.id.reports -> {
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ReportActivity()).commit()
+            }
+            R.id.about -> {
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, AboutActivity()).commit()
+            }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
