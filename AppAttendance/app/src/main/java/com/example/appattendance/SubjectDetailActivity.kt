@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_subject_detail.*
+import java.util.*
 
 class SubjectDetailActivity : AppCompatActivity() {
     private lateinit var mAuth : FirebaseAuth
@@ -164,6 +165,30 @@ class SubjectDetailActivity : AppCompatActivity() {
                     //TODO numero total de alunos na disciplina para calcular percentual de presença na aula e na disciplina
 
                     ll_fab_professor.visibility = View.VISIBLE
+
+                    //verificacao para executar IntentService
+                    /*val cal = Calendar.getInstance()
+                    val currentIntWeekDay = cal.get(Calendar.DAY_OF_WEEK)
+                    var currentWeekDay = ""
+                    when(currentIntWeekDay) {
+                        Calendar.MONDAY -> currentWeekDay = "Segunda-feira"
+                        Calendar.TUESDAY -> currentWeekDay = "Terça-feira"
+                        Calendar.WEDNESDAY -> currentWeekDay = "Quarta-feira"
+                        Calendar.THURSDAY -> currentWeekDay = "Quinta-feira"
+                        Calendar.FRIDAY -> currentWeekDay = "Sexta-feira"
+                    }
+                    var time1 : String
+                    var time2 : String
+                    listSchedules.forEach {
+                        if(currentWeekDay.contentEquals(it.weekday)) {
+                            //verifica horario
+                            time1 = it.timerange.subSequence(0, it.timerange.indexOf("-", 0, false))
+                                .toString()
+                            time2 = it.timerange.subSequence(it.timerange.indexOf("-", 0, false)+1,
+                                it.timerange.length).toString()
+                            //TODO verificar se horario atual esta no intervalo de hora definido no schedule
+                        }
+                    }*/
 
                 } else if(userType.contentEquals("student")) {
                     var professor = subjectSnapshot.child("professor").value.toString()

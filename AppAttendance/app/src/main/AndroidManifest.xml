@@ -11,9 +11,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <service
+                android:name=".NearbyService"
+                android:exported="false">
+        </service>
+
         <meta-data
                 android:name="com.google.android.nearby.messages.API_KEY"
-                android:value="AIzaSyB2ZpRjLsQpMnbAODZi1YubjXBhNbgBUxo" />
+                android:value="AIzaSyB2ZpRjLsQpMnbAODZi1YubjXBhNbgBUxo"/>
+
         <activity android:name=".AddClassActivity">
         </activity>
         <activity android:name=".SubjectDetailActivity">
