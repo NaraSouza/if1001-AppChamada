@@ -13,10 +13,6 @@
             android:title="@string/reports"
             android:icon="@drawable/ic_chart_white_96dp"/>
         <item
-            android:id="@+id/profile"
-            android:title="@string/profile"
-            android:icon="@drawable/ic_account_circle_white_96dp"/>
-        <item
             android:id="@+id/about"
             android:title="@string/about"
             android:icon="@drawable/ic_info_white_96dp"/>
